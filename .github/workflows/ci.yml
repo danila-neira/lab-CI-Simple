@@ -1,0 +1,18 @@
+name: CI Simple
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Descargar código
+      uses: actions/checkout@v3
+
+    - name: Ejecutar app
+      run: node app.js
+
+    - name: Ejecutar test
+      run: node test.js
