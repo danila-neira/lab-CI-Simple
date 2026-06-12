@@ -1,23 +1,25 @@
 name: CI Simple
 
-on:
-  push:
+on: [push]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Descargar código
-      uses: actions/checkout@v3
+      - name: Checkout código
+        uses: actions/checkout@v3
 
-    - name: Instalar Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Instalar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Ejecutar app
-      run: node app.js
+      - name: Ver archivos (DEBUG)
+        run: ls -la
 
-    - name: Ejecutar test
-      run: node test.js
+      - name: Ejecutar app
+        run: node app.js
+
+      - name: Ejecutar test
+        run: node test.js
